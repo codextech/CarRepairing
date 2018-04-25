@@ -1,0 +1,114 @@
+﻿@model CarServices.Models.Feedback
+@{
+    ViewBag.Title = "Thanks";
+    Layout = "~/Views/Shared/_CarServiceLayout.cshtml";
+}
+
+
+
+<!--  page banner -->
+<div id="page-banner" class="page-banner-main" style="background-image: url('../../Images/images/bg/page-banner.jpg')">
+    <div class="container">
+        <div class="page-banner-block">
+            <div class="section">
+                <h3 class="section-heading">Thank You</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  end page banner  -->
+
+
+
+<!--  feedback -->
+<div id="appointments" class="appointment-main-block appointment-two-main-block">
+    <div class="container">
+        <div class="row">
+            <div class="section text-center">
+                <h3 class="section-heading text-center">Thanks For choosing us! We will be there Soon</h3>
+                <p style="background-color:#f88630;color:white"> Please Stay On this Page to Get <b>ALert Of Our Employee Name reaching you</b></p>
+                
+                
+                <p class="sub-heading text-center">After Reparing Your Car Please Give Feedback  </p>
+
+                <button type="submit" id="btn" class="btn btn-success btn-group-lg" style="display:inline-block; margin: auto" >Give Feedback </button>
+            </div>
+
+
+
+            
+
+
+            @* Feedback Form *@
+
+            <div class="col-md-12" id="FeedbackForm">
+                <div class="appointment-block">
+                    
+                    @using (Html.BeginForm("Thanks", "Service", FormMethod.Post, new { id = "appointment-form", @class="appointment-form"}))
+
+
+                    { 
+                        <h5 class="form-heading-title">FeedBack</h5>
+                        <div class="row">
+                            <div class="col-sm-4">
+
+                                @Html.TextBoxFor(model=> model.Name ,new {@class="form-control", id="name", name="name" ,placeholder="Full Name" })
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", id = "email" ,name = "email", placeholder = "Email Address" })
+
+                            </div>
+                           
+                            <div class="col-sm-12">
+
+                                @Html.TextAreaFor(model=> model.Message , new { id = "message", name = "message" ,rows = "6" ,placeholder = "Message" })
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-default pull-right">Submit</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  end appointments -->
+
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+    <script>
+
+
+        $('#FeedbackForm').hide();
+
+        $('#btn').click(function () {
+
+
+            $('#FeedbackForm').show(500);
+
+
+                    })
+
+
+
+
+</script>
+
+
+
+@*<script>
+
+
+    $(document).ready(function () {
+
+        window.addEventListener('storage', storageEventHandler, false);
+
+        function storageEventHandler(evt) {
+            alert("Here is Our Employee Name: " + evt.key);
+        }
+    });
+
+
+    
+
+</script>*@

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<CarServices.Models.ServiceOrder>
+@{
+    ViewBag.Title = "TotalOrders";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h4 class="text-themecolor">All Orders</h4>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="table-responsive">
+                            <table class="table product-overview" id="myTable">
+                                <thead>
+                                    <tr>
+                                        <th>Client Name</th>
+                                        <th>Service Name</th>
+                                        <th>Mobile#</th>
+                                        <th>Employee</th>
+
+                                        <th>Detail</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Name</td>
+                                            <td>@item.Service.ServiceName</td>
+                                            <td>@item.Mobile</td>
+                                            <td>@item.Employee.EmployeeName</td>
+                                            <td>
+                                                <a href="@Url.Action("TotalOrdersDetail","ServicesPortal", new { id = item.ServiceOrderID })" class="text-inverse p-r-10" data-toggle="tooltip" title="Details"><i class="fa fa-chevron-circle-right"></i></a>
+
+
+
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+

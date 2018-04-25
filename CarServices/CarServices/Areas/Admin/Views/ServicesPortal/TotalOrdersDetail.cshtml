@@ -1,0 +1,99 @@
+﻿@model CarServices.Models.ServiceOrder
+@{
+    ViewBag.Title = "TotalOrdersDetail";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h4 class="text-themecolor">Order Details</h4>
+            </div>
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Info box Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <!-- Column -->
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 style="color:#ca2222">@Model.Name</h3>
+                        <div class="row">
+
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <h3 class="box-title m-t-40">Complete Info</h3>
+                                <div class="table-responsive">
+                                    <table class="table">
+
+
+                                  
+
+                                            <tbody>
+                                                <tr>
+                                                    <td width="390">Service Name</td>
+                                                    <td> @Model.Service.ServiceName </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Client Name</td>
+                                                    <td>@Model.Name </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Car's Model</td>
+                                                    <td> @Model.VehicleModel </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Car's Company</td>
+                                                    <td> @Model.VehicleCompany </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mobile</td>
+                                                    <td>@Model.Mobile</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Location</td>
+                                                    <td> @Model.Location </td>
+                                                </tr>
+
+
+
+                                                <tr>
+                                                    <td>Employee</td>
+                                                    <td>@Model.Employee.EmployeeName</td>
+                                                </tr>
+
+
+
+
+                                            </tbody>
+                                       
+
+                                    </table>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+

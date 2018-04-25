@@ -1,0 +1,158 @@
+﻿@model IEnumerable<CarServices.Models.Service>
+@{
+    ViewBag.Title = "OurServices";
+    Layout = "~/Views/Shared/_CarServiceLayout.cshtml";
+}
+
+
+
+
+
+
+
+
+
+ <!--  slider -->
+<div id="home-slider" class="home-slider">
+    <div class="item home-slider-bg" style="background-image: url('~/Images/images/slider-1.jpg')">
+        <div class="overlay-bg"></div>
+        <div class="container">
+            <div class="slider-dtl">
+                <h1 class="slider-heading">We Care For Your Car</h1>
+            </div>
+        </div>
+    </div>
+    <div class="item home-slider-bg" style="background-image: url('~/Images/images/slider-2.jpg')">
+        <div class="overlay-bg"></div>
+        <div class="container">
+            <div class="slider-dtl slider-dtl-left">
+                <h1 class="slider-heading">We Care For Your Car</h1>
+            </div>
+        </div>
+    </div>
+    <div class="item home-slider-bg" style="background-image: url('~/Images/images/slider-3.jpg')">
+        <div class="overlay-bg"></div>
+        <div class="container">
+            <div class="slider-dtl slider-dtl-right">
+                <h1 class="slider-heading">We Care For Your Car</h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--  end slider -->
+
+
+
+    <!--  services -->
+    <div id="services" class="services-main-block">
+        <div class="container">
+            <div class="section text-center">
+                <h3 class="section-heading">Our Services</h3>
+            </div>
+            <div class="row">
+
+
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-3 col-sm-6">
+                        <div class="service-block text-center drop-shadow curved shadow">
+                            <div class="service-icon">
+                                <a href="@Url.Action("Details", "Service", new { id = item.ServiceID })"><img src="@Url.Content(item.ImageUrl)" class="img-responsive" alt="service-01"></a>
+                            </div>
+                            <div class="service-dtl">
+
+                                <a href="@Url.Action("Details", "Service", new { id = item.ServiceID })"><h5 class="service-heading">@item.ServiceName</h5></a>
+                                <p>@item.Price</p>
+                             </div>
+                        </div>
+                    </div>
+
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+    <!--  end services -->
+
+
+    <!--  team -->
+    <div id="team" class="team-main-block">
+        <div class="container">
+            <div class="section text-center">
+                <h3 class="section-heading">Our Awesome Team</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="team-block text-center drop-shadow curved shadow">
+                        <div class="team-img">
+                            <a href="team-details.html">
+                                <img src="~/Images/images/team/team-01.jpg" class="img-responsive" alt="team-01">
+                                <div class="overlay-bg"></div>
+                            </a>
+                        </div>
+                        <div class="team-dtl">
+                            <a href="team-details.html"><h6 class="team-heading">Sarah Johnson</h6></a>
+                            <div class="team-post">Mechanic</div>
+                            <div class="team-social">
+                                <ul>
+                                    <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fa fa-pinterest-p"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="team-block text-center drop-shadow curved shadow">
+                        <div class="team-img">
+                            <a href="#">
+                                <img src="~/Images/images/team/team-02.jpg" class="img-responsive" alt="team-02">
+                                <div class="overlay-bg"></div>
+                            </a>
+                        </div>
+                        <div class="team-dtl">
+                            <a href="team-details.html"><h6 class="team-heading">John Doe</h6></a>
+                            <div class="team-post">Mechanic</div>
+                            <div class="team-social">
+                                <ul>
+                                    <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fa fa-pinterest-p"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="team-block text-center drop-shadow curved shadow">
+                        <div class="team-img">
+                            <a href="team-details.html">
+                                <img src="~/Images/images/team/team-03.jpg" class="img-responsive" alt="team-03">
+                                <div class="overlay-bg"></div>
+                            </a>
+                        </div>
+                        <div class="team-dtl">
+                            <a href="team-details.html"><h6 class="team-heading">Sarah Clark</h6></a>
+                            <div class="team-post">Mechanic</div>
+                            <div class="team-social">
+                                <ul>
+                                    <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fa fa-pinterest-p"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  end team -->
+

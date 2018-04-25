@@ -1,0 +1,98 @@
+﻿@model CarServices.Models.ServiceOrder
+@{
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/Shared/_CarServiceLayout.cshtml";
+
+   
+}
+
+
+<!--  page banner -->
+<div id="page-banner" class="page-banner-main" style="background-image: url('../../Images/images/bg/page-banner.jpg')">
+    <div class="container">
+        <div class="page-banner-block">
+            <div class="section">
+                <h3 class="section-heading">CheckOut</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  end page banner  -->
+
+
+
+<!--  appointments -->
+<div id="appointments" class="appointment-main-block appointment-two-main-block">
+    <div class="container">
+        <div class="row">
+            <div class="section text-center">
+                <h3 class="section-heading text-center">You are just 1 Step behind</h3>
+            </div>
+            <div class="col-md-4 hidden-sm">
+                <div class="appointment-img drop-shadow curved shadow">
+                    <img src="~/Images/images/appointment.jpg" class="img-responsive" alt="Appointment">
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-12">
+                <div class="appointment-block">
+
+@using (Html.BeginForm("CheckOut", "Service", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+
+{
+   
+    <input type="hidden" value="@ViewBag.serviceId" name="ServiceId" />
+
+
+                        <h5 class="form-heading-title"><span class="form-heading-no">1.</span>Vehicle Information</h5>
+                        <div class="row">
+
+
+                            <div class="col-sm-6">
+
+                                @Html.TextBoxFor(model=> model.VehicleCompany, new {@class= "form-control", id = "vehical-model" , placeholder = "Enter Vehicle Company" })
+
+                            </div>
+
+                            <div class="col-sm-6">
+
+                                @Html.TextBoxFor(model => model.VehicleModel, new { @class = "form-control", id = "vehical-model", placeholder = "Enter Vehicle Model" })
+                            </div>
+                        </div>
+                        
+                        <h5 class="form-heading-title"><span class="form-heading-no">2.</span>Contact Details</h5>
+                        <div class="row">
+                            <div class="col-sm-6">
+
+                                @Html.TextBoxFor(model => model.Name , new{@class = "form-control", placeholder = "Full Name" , name="name" } )
+
+                            </div>
+                           
+                            <div class="col-sm-6">
+                                @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control", placeholder = "Phone Number", name = "phone" })
+                            </div>
+                            <br />
+                            <div class="col-sm-12">
+
+                                @Html.TextAreaFor(model => model.Location, new { @class = "form-control", placeholder = "Location", name = "message" })
+
+                                @*<textarea id="message" name="message" rows="6" placeholder="Message"></textarea>*@
+                            </div>
+
+
+                            @Html.HiddenFor(m => m.EmployeeId, new { Value = 1 })
+
+
+
+
+                        </div>
+                        <button type="submit" class="btn btn-default pull-right">Call Emplyee</button>
+                   }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  end appointments -->
+
+
+

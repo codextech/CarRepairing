@@ -1,0 +1,137 @@
+﻿@model CarServices.Models.ServiceOrder
+
+@{
+    ViewBag.Title = "OrderDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+
+
+
+
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h4 class="text-themecolor">Product Details</h4>
+            </div>
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Info box Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <!-- Column -->
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="row">
+
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <h3 class="box-title m-t-40">Complete Info</h3>
+                                <div class="table-responsive">
+
+                                    @using (Html.BeginForm("OrderDetails", "ServicesPortal", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                    {
+                                        <table class="table">
+
+
+
+
+                                            @Html.HiddenFor(m => m.ServiceOrderID)
+
+                                            <tbody>
+                                                <tr>
+                                                    <td width="390">Service Name</td>
+                                                    <td> @Model.Service.ServiceName </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Client Name</td>
+                                                    <td>@Model.Name </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Car's Model</td>
+                                                    <td> @Model.VehicleModel </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Car's Company</td>
+                                                    <td> @Model.VehicleCompany </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mobile</td>
+                                                    <td>@Model.Mobile</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Location</td>
+                                                    <td> @Model.Location </td>
+                                                </tr>
+
+
+
+                                                <tr>
+                                                    <td>Employee</td>
+                                                    <td>
+                                                        @Html.DropDownList("employeeId", null, htmlAttributes: new { @class = "form-control" ,id= "drpdown" })
+                                                    </td>
+
+                                                </tr>
+
+
+
+
+                                            </tbody>
+
+
+                                        </table>
+
+
+                                    <input type="submit" value="Send Emplyee" class="btn btn-success"/>
+
+                                    }
+
+                                    <p>
+                                        @* @Html.ActionLink("Edit", "Edit", new { id = Model.ID , @class="btn btn-success" }) |*@
+                                        @Html.ActionLink("Back to List", "NewOrder")
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+@*<script>
+    $('#Ebtn').click(function () {
+
+     var employeeName =   $('#drpdown :selected').val();
+
+     localStorage.setItem("employeeName", "Val");
+    });
+</script>*@
+
+

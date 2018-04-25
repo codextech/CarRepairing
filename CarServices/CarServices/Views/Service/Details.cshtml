@@ -1,0 +1,61 @@
+﻿@model CarServices.Models.Service
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_CarServiceLayout.cshtml";
+}
+
+
+
+<!--  page banner -->
+<div id="page-banner" class="page-banner-main" style="background-image: url('../../Images/images/bg/page-banner.jpg')">
+    <div class="container">
+        <div class="page-banner-block">
+            <div class="section">
+                <h3 class="section-heading">Detail</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  end page banner  -->
+<!-- services details -->
+<div id="services-dtl-page" class="services-dtl-main-block">
+    <div class="container">
+        <div class="services-dtl-block">
+            <div class="services-dtl-img">
+                <img src="@Url.Content(Model.ImageUrl)" class="img-responsive" alt="services-banner" style="display:block;margin-left:auto;margin-right:auto;width:50%;">
+            </div>
+            <h4 class="services-heading">Description</h4>
+            <p>@Model.Description</p>
+            <br />
+            <b>
+                @Model.Price PKR
+            </b>
+        </div>
+        
+
+        <div class="button">
+            @Html.ActionLink("Get Service", "CheckOut", "Service" , new { id = Model.ServiceID }, new  { @class="btn btn-success btn-lg" })
+        </div>
+
+    </div>
+</div>
+<!--  end services dtl -->
+
+@*<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+     @*code for jelly button
+    <script>
+
+        var $button = document.querySelector('.button');
+        $button.addEventListener('click', function () {
+            var duration = 0.3,
+                delay = 0.08;
+            TweenMax.to($button, duration, { scaleY: 1.6, ease: Expo.easeOut });
+            TweenMax.to($button, duration, { scaleX: 1.2, scaleY: 1, ease: Back.easeOut, easeParams: [3], delay: delay });
+            TweenMax.to($button, duration * 1.25, { scaleX: 1, scaleY: 1, ease: Back.easeOut, easeParams: [6], delay: delay * 3 });
+        });
+       
+    </script>
+*@
+    
+
